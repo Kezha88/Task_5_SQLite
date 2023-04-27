@@ -1,0 +1,144 @@
+﻿<Window x:Class="Task_5_SQLite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="580"
+        Width="842"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        FontFamily="Comic Sans MS">
+
+    <Grid Background="Azure"
+          MouseDown="Grid_MouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image
+                Source="/View/Images/main_bg.png" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill" Margin="-23,-8,-21,-4">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.06" AngleX="-0.155"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.429" X="-0.771"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Border
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="386"
+                Height="404"
+                CornerRadius="83,83,83,83"
+                Background="#FFFFFF"
+                Effect="{StaticResource MaterialDesignElevationShadow24}" Grid.ColumnSpan="2" Margin="228,0,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24*"/>
+                    <ColumnDefinition Width="11*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="112,0,0,0">
+                    <TextBlock Text="Войти в систему"
+                               Foreground="#9400d3"
+                               FontWeight="Medium"
+                               FontSize="20"
+                               TextAlignment="Center"/>
+                    <TextBlock Text="Практическая работа №5"
+                               TextWrapping="Wrap"
+                               FontWeight="Regular"
+                               FontSize="12"
+                               Foreground="#474749"
+                               Margin="0 20 0 0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                            Margin="40,0,40,0" Grid.ColumnSpan="2">
+                    <StackPanel>
+                        <TextBlock Text="Email"
+                                   Foreground="#7F7E83"
+                                   FontSize="12"
+                                   FontWeight="Regular"/>
+                        <Border Width="307"
+                                Height="40"
+                                CornerRadius="10"
+                                Background="#F4F4F4"
+                                Padding="5">
+                            <TextBox Width="290"
+                                       x:Name="TbLogin"
+                                       Foreground="#9400d3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       materialDesign:HintAssist.Hint="Введите адрес электронной почты..."
+                                       materialDesign:TextFieldAssist.HasClearButton="True"
+                                       materialDesign:TextFieldAssist.UnderlineBrush="#F4F4F4"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="0 30 0 0">
+                        <TextBlock Text="Password"
+                                   Foreground="#7F7E83"
+                                   FontSize="12"
+                                   FontWeight="Regular"/>
+                        <Border Width="307"
+                                Height="40"
+                                CornerRadius="10"
+                                Background="#F4F4F4"
+                                Padding="5">
+                            <PasswordBox Width="290"
+                                         x:Name="PbPassword"
+                                         Foreground="#9400d3"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         materialDesign:HintAssist.Hint="Введите пароль..."
+                                         materialDesign:TextFieldAssist.HasClearButton="True"
+                                         materialDesign:TextFieldAssist.UnderlineBrush="#F4F4F4" Password=""/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="146,6,0,0">
+                    <Button x:Name="BtnLogin"
+                            Click="BtnLogin_Click"
+                            Foreground="#9400d3"
+                            Background="Transparent"
+                            BorderBrush="#9400d3"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            materialDesign:ButtonProgressAssist.IndicatorForeground="#9400d3"
+                            materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Person"
+                                                     Margin="0 2 3 0"/>
+                            <TextBlock Text="Войти"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <TextBlock Grid.Row="2"
+                           Margin="50,59,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Или получить временный"/><Run Text=" "/><Run Foreground="#9400d3" Text="ограниченный доступ."/></TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
